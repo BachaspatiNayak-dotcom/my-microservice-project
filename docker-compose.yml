@@ -1,0 +1,15 @@
+services:
+
+  django:
+    image: bachaspatinayak/django-app:latest
+    container_name: django
+    ports:
+      - "8000:8000"
+    environment:
+      FASTAPI_BASE_URL: http://fastapi:8000
+    depends_on:
+      - fastapi
+
+  fastapi:
+    image: bachaspatinayak/fastapi:latest
+    container_name: fastapi
